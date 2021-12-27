@@ -13,8 +13,9 @@ alert('Selamat datang di game tebak angka. Kamu diminta menebak angka 1-3 dan ka
 
 babak = 1;
 while(babak <=5){
-	alert('babak '+ '.' + ' Lanjut?');
-	babak++
+	alert('babak '+ babak+ '.' + ' Lanjut?');
+	babak++ 
+	poin++
 
 //var tanya = true;
 //while(tanya == true){
@@ -35,8 +36,8 @@ if (comp < 0.34){
 	comp = '3';
 }
 
-var hasil = '';
-
+let hasil1 = '';
+let hasil2 = '';
 // menentukan rules
 
 //if (player1 == player2) {
@@ -56,22 +57,48 @@ var hasil = '';
 //alert('pilihan komputer adalah '+ comp + '/n Nilai anda adalah :/n Player 1:'+ player1 + 'Player 2:' + player2 );
 
 var poin = 1;
-
+let score1 = '';
+let score2 = '';
 	if (player2 == comp){
-		hasil('Nilai ' + poin + ' poin untuk player2'); 1 : 0;
+		score2 = `benar`;
+		alert('Nilai 1 poin untuk player2');
+			alert('Nilai pilihan komputer:' + comp + '\n' + 'Player1 : ' + '0' + '\n' + 'Player 2 : ' + poin );
+	
 	} else if (player1 == comp) {
+		score1 = `benar`;
 		alert('Nilai 1 poin untuk player1');
+			alert('Nilai pilihan komputer:' + comp + '\n' + 'Player1 : ' + poin + '\n' + 'Player 2 : ' + '0' );
+			
 	} else if (player1 == player2){
 		confirm('Nilai yang dimasukkan tidak boleh sama. Apakah ingin melanjutkan permainan?');
-	} else if (player1 > 3){
+			confirm('Ulangi?');
+	} else if (player1 > 3 && player1 <1){
 		confirm('Nilai yang anda masukkan harus 1 - 3. Apakah ingin melanjutkan permainan?');
-	} else if (player2 > 3) {
+	} else if (player2 > 3 && player2 <2) {
 		confirm('Nilai yang anda masukkan harus 1 - 3. Apakah ingin melanjutkan permainan?');
 	} else {
 		confirm('nilai yang anda masukkan tidak tepat. Apakah ingin melanjutkan permainan?');
 	}
-
+// var totalskor1 = skorAkhir1 + skorAkhir1 + skorAkhir1 + skorAkhir1 + skorAkhir1;
+function score1akhir(score1){
+	return score1++
+} 
+function score2akhir(score2){
+	return score2++
 }
+
+if (score1akhir == score2akhir) {
+	hasil = 'SERI';
+} else if (score1akhir > score2akhir) {
+	hasil = 'pemenangnya adalah Player 1';
+} else {
+	hasil = 'Pemenangnya adalah Player 2';
+}
+
+	
+}
+alert('Selamat' + hasil);
+
 
 
 // menampilkan hasil
