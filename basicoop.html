@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic OOP</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body font-family=sans-serif>
+    <div class="container">
+      <h1>Mini Library From Eduwork</h1>
+      <div id="app"></div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/index.js" type="module"></script>
+  
+    <script>
+        class Table {
+          constructor(init) {
+            this.init = init;
+          }
+
+          createHeader(data) {
+            let open = "<thead><tr>";
+            let close = "</tr></thead>";
+            data.forEach((d) => {
+              open += `<th>${d}</th>`;
+            });
+
+            return open + close;
+          }
+
+          createBody(data) {
+            let open = "<tbody>";
+            let close = "</tbody>";
+
+            data.forEach((d) => {
+              open += `
+                <tr>
+                  <td>${d[0]}</td>
+                  <td>${d[1]}</td>
+                  <td>${d[2]}</td>
+                  <td>${d[3]}</td>
+                  <td>${d[4]}</td>
+                </tr>
+              `;
+            });
+
+            return open + close;
+          }
+
+          render(element) {
+            let table =
+              "<table class='table table-hover'>" +
+              this.createHeader(this.init.columns) +
+              this.createBody(this.init.data) +
+              "</table>";
+            element.innerHTML = table;
+          }
+        }
+
+        const table = new Table({
+          columns: ["No.","Name", "Email","NRP","Jurusan"],
+          data: [
+            ["1.","Eny Safitri", "enysaftr@gmail.com","028165","Agrobisnis"],
+            ["2.","Dodi Irawan", "dodi@yahoo.com", "029181","Teknik Sipil"],
+            ["3.","Miranda", "mirara@gmail.com", "027176", "Ilmu Gizi"],
+            ["4.","Jessica Putri", "jeje276@gmail.com","029817","Agronomi"],
+            ["5.","Ariska","ariska6297@yahoo.co.id","029176","Agronomi"]
+          ]
+        });
+        const app = document.getElementById("app");
+        table.render(app);
+      </script>
+</body>
+</html>
